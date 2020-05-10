@@ -22,7 +22,7 @@ void BinarySearchTree::addVertexToTree(int data, BinarySearchTree *&root_tree) {
     perror("The binary search tree cannot have negative elements in its vertex");
     return;
   }
-  if (root_tree->_data < data)
+  if (root_tree->_data < data) 
     addVertexToTree(data, root_tree->_right_edge);
   else
     addVertexToTree(data, root_tree->_left_edge);
