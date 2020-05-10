@@ -24,7 +24,7 @@ class BinarySearchTree{
      * \brief Добавить вершину в дерево.
      * \param _vertex значение, которое нужно добавить в дерево.
      */
-    void addVertexToATree(int _data, BinarySearchTree *&edge);
+    void addVertexToTree(int _data, BinarySearchTree *&edge);
     /**
      * \brief Удалить вершину из дерева.
      * \param _vertex значение, которое нужно удалить из дерева.
@@ -34,7 +34,7 @@ class BinarySearchTree{
      * \brief Найти вершину в дереве.
      * \param _vertex значение, которе нужно найти в дереве.
      */
-    void searchVertexInATree(int _data);
+    void searchVertexInTree(int _data);
 };
 
 #endif /* BINARY_SEARCH_TREE_HPP_ */

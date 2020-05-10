@@ -6,5 +6,9 @@ using namespace std;
 
 int main() {
 
+  BinarySearchTree* binary_tree = nullptr;
+  binary_tree->addVertexToTree(5, binary_tree);
+  binary_tree->addVertexToTree(6, binary_tree);
+  binary_tree->addVertexToTree(4, binary_tree);
   return 0;
 }
