@@ -7,34 +7,36 @@
 #ifndef BINARY_SEARCH_TREE_HPP_
 #define BINARY_SEARCH_TREE_HPP_
 
-class BinarySearchTree{
+class BinarySearchTree {
   private:
     int _data; /**< информация, которая должна лежать в узле. */
     BinarySearchTree *_left_edge; /**< указатель на левого потомка. */
     BinarySearchTree *_right_edge; /**< указатель на правого потомка. */
 
   public:
-    /* Явно запрещаем конструктор копирования. */
-    BinarySearchTree(const BinarySearchTree &other_tree) = delete;
     /* Конструктор по умолчанию. */
     BinarySearchTree();
     /* Конструктор по умолчанию с передаваемым значением вершины. */
     BinarySearchTree(int root_vertex);
+    /* Конструктор копирования. */
+    BinarySearchTree(const BinarySearchTree &other_tree);
     /**
      * \brief Добавить вершину в дерево.
-     * \param _vertex значение, которое нужно добавить в дерево.
+     * \param data значение, которое нужно добавить в дерево.
+     * \param root_tree ссылка на указатель на корень бинарного дерева поиска.
      */
-    void addVertexToTree(int _data, BinarySearchTree *&edge);
+    void addVertexToTree(int data, BinarySearchTree *&root_tree);
     /**
      * \brief Удалить вершину из дерева.
-     * \param _vertex значение, которое нужно удалить из дерева.
+     * \param data значение, которое нужно удалить из дерева.
+     * \param root_tree ссылка на указатель на корень бинарного дерева поиска.
      */
-    void deleteVertexFromTree(int _data);
+    void deleteVertexFromTree(int data, BinarySearchTree *&root_tree);
     /**
      * \brief Найти вершину в дереве.
-     * \param _vertex значение, которе нужно найти в дереве.
+     * \param data значение, которе нужно найти в дереве.
      */
-    void searchVertexInTree(int _data);
+    void searchVertexInTree(int data);
 };
 
 #endif /* BINARY_SEARCH_TREE_HPP_ */

@@ -14,6 +14,12 @@ BinarySearchTree::BinarySearchTree() {
   _right_edge = nullptr;
 }
 
+BinarySearchTree::BinarySearchTree(const BinarySearchTree &other_tree) {
+  this->_data = other_tree._data;
+  this->_left_edge = other_tree._left_edge;
+  this->_right_edge = other_tree._right_edge;
+}
+
 void BinarySearchTree::addVertexToTree(int data, BinarySearchTree *&root_tree) {
   if (root_tree == nullptr)
     root_tree = new BinarySearchTree(data);
@@ -26,4 +32,14 @@ void BinarySearchTree::addVertexToTree(int data, BinarySearchTree *&root_tree) {
     addVertexToTree(data, root_tree->_right_edge);
   else
     addVertexToTree(data, root_tree->_left_edge);
+}
+
+void BinarySearchTree::deleteVertexFromTree(int data, BinarySearchTree *&root_tree) {
+  if (root_tree == nullptr)
+    return;
+  if (root_tree->_data == data &&
+      !root_tree->_left_edge &&
+      !root_tree->_right_edge) {
+        delete root_tree;
+      }
 }
