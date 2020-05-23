@@ -21,9 +21,11 @@ BinarySearchTree::BinarySearchTree(const BinarySearchTree &other_tree) {
 }
 
 void BinarySearchTree::addVertexToTree(int data, BinarySearchTree *&root_tree) {
-  if (root_tree == nullptr)
-    root_tree = new BinarySearchTree(data);
-    return;
+  if (root_tree == nullptr) {
+    BinarySearchTree *tree_node = new BinarySearchTree(data);
+    root_tree = tree_node;
+    return; 
+  }
   if (data < 0) {
     perror("The binary search tree cannot have negative elements in its vertex");
     return;
@@ -34,12 +36,22 @@ void BinarySearchTree::addVertexToTree(int data, BinarySearchTree *&root_tree) {
     addVertexToTree(data, root_tree->_left_edge);
 }
 
-void BinarySearchTree::deleteVertexFromTree(int data, BinarySearchTree *&root_tree) {
+bool BinarySearchTree::searchVertexInTree(int data, BinarySearchTree *&root_tree) {
+  if (root_tree == nullptr)
+    return false;
+  if (root_tree->_data == data)
+    return true;
+  if (root_tree->_data < data)
+    return searchVertexInTree(data, root_tree->_right_edge);
+  else
+    return searchVertexInTree(data, root_tree->_left_edge);
+}
+
+void BinarySearchTree::deleteTree(BinarySearchTree *root_tree) {
   if (root_tree == nullptr)
     return;
-  if (root_tree->_data == data &&
-      !root_tree->_left_edge &&
-      !root_tree->_right_edge) {
-        delete root_tree;
-      }
+  deleteTree(root_tree->_left_edge);
+  deleteTree(root_tree->_right_edge);
+  delete root_tree;
+  return;
 }

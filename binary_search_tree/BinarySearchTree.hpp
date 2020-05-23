@@ -27,16 +27,22 @@ class BinarySearchTree {
      */
     void addVertexToTree(int data, BinarySearchTree *&root_tree);
     /**
+     * \brief Найти вершину в дереве.
+     * \param data значение, которе нужно найти в дереве.
+     * \param root_tree ссылка на указатель на корень бинарного дерева поиска.
+     */
+    bool searchVertexInTree(int data, BinarySearchTree *&root_tree);
+    /**
      * \brief Удалить вершину из дерева.
      * \param data значение, которое нужно удалить из дерева.
      * \param root_tree ссылка на указатель на корень бинарного дерева поиска.
      */
     void deleteVertexFromTree(int data, BinarySearchTree *&root_tree);
     /**
-     * \brief Найти вершину в дереве.
-     * \param data значение, которе нужно найти в дереве.
-     */
-    void searchVertexInTree(int data);
+     * \brief Удалить всё дерево.
+     * \param root_tree ссылка на указатель на корень дерева.
+    */
+    void deleteTree(BinarySearchTree *root_tree);
 };
 
 #endif /* BINARY_SEARCH_TREE_HPP_ */
