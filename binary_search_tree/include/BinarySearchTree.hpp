@@ -25,7 +25,7 @@ class BinarySearchTree {
      * \param data значение, которое нужно добавить в дерево.
      * \param root_tree ссылка на указатель на корень бинарного дерева поиска.
      */
-    void addVertexToTree(int data, BinarySearchTree *&root_tree);
+    bool addVertexToTree(int data, BinarySearchTree *&root_tree);
     /**
      * \brief Найти вершину в дереве.
      * \param data значение, которе нужно найти в дереве.
